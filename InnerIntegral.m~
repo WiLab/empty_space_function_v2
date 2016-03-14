@@ -1,7 +1,12 @@
 function integral_result = InnerIntegral(r, M, X_full, num_integrals  )
 
 
+% The smaller num_integrals, more larger integral_result
+% num_integrals>4  ~=num_integrals
+
 indexes = 1:M;
+% indexes_shuffled = indexes(randperm(sobolnums));
+% X = X_full(indexes_shuffled(1:num_integrals),:);
 
 lambda = 0.4492;
 alpha = 1.558;
@@ -12,7 +17,7 @@ for n_int=1:M
     % Select ([0,1]x[0,1])^n pairs for n dimensional unit squares
     %X = X_full(1:num_integrals,:);
     % Shuffle sampling values
-    indexes_shuffled = indexes(randperm(M));
+    indexes_shuffled = indexes(randperm(sobolnums));
     X = X_full(indexes_shuffled(1:num_integrals),:);
     
     % Product
